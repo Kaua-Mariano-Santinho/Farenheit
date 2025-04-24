@@ -3,59 +3,125 @@ import java.util.Scanner;
 public class Conversor {
 
     public static void main(String[] args) {
-        
 
-// Declaração de Variáveis
-        double c, f;
-        int op;
-
-// Scanner
         Scanner entrada = new Scanner(System.in);
-  
-// Home
-    do{
-        System.out.println("\n\t\t\t Conversor \n");
-        System.out.println("-- Bem vindo ao melhor Conversor da história! --");
-        
-        System.out.println("\n\n1. Celcius (°C) para Fahrenheit (°F)");
-        System.out.println("2. Fahrenheit (°F) para Celcius (°C)");
-        System.out.println("3. Sair");
 
-        System.out.print("\nOpção:");
-        op = entrada.nextInt();
+        int op;
+        double c, f, k;
 
+        do {
+            System.out.println("\n\t\t\t Conversor \n");
+            System.out.println("-- Bem-vindo ao melhor Conversor da história! by:Sans_ --");
 
-        // Entrada
-        switch (op) {
-            case 1:
-                System.out.print("\n\n Informe uma teperatura específica em graus Celcius (°C):\n");
-                c = entrada.nextDouble();
+            System.out.println("\n1. Celsius");
+            System.out.println("2. Fahrenheit");
+            System.out.println("3. Kelvin");
+            System.out.println("4. Sair");
 
-                // Processamento
-                f = 1.8 * c + 32;
-                // Saída
-                System.out.println("\n" + c + "°C em Fahrenheit (°F) é:" + f + "°F.");       
-                break;
+            System.out.print("\nOpção: ");
+            op = entrada.nextInt();
 
-            case 2:
-                System.out.print("\n\n Informe uma teperatura específica em graus Fahrenheit (°F):\n");
-                f = entrada.nextDouble();
+            switch (op) {
+                case 1:
+                    System.out.println("Você escolheu Celsius (°C).");
+                    System.out.println("1. Converter para Fahrenheit (°F)");
+                    System.out.println("2. Converter para Kelvin (K)");
+                    System.out.println("3. Voltar");
 
-                // Processamento
-                c = (f - 32) * 5/9;
-                // Saída
-                System.out.println("\n" + f + "°F em Celcius (°C) é:" + c + "°C.");    
-                break;
-            case 3:
-                System.out.println("\n Arrivederci!");
-                break;
+                    System.out.print("\nOpção: ");
+                    int opc = entrada.nextInt();
 
-            default:
-                System.out.println("Escolha uma opção correta...");
+                    switch (opc) {
+                        case 1:
+                            System.out.print("Informe a temperatura em Celsius: ");
+                            c = entrada.nextDouble();
+                            f = 1.8 * c + 32;
+                            System.out.println(c + "°C em Fahrenheit é: " + f + "°F");
+                            break;
+                        case 2:
+                            System.out.print("Informe a temperatura em Celsius: ");
+                            c = entrada.nextDouble();
+                            k = c + 273.15;
+                            System.out.println(c + "°C em Kelvin é: " + k + "K");
+                            break;
+                        case 3:
+                            System.out.println("Voltando ao menu principal...");
+                            break;
+                        default:
+                            System.out.println("Opção inválida.");
+                    }
+                    break;
 
-        }
+                case 2:
+                    System.out.println("Você escolheu Fahrenheit (°F).");
+                    System.out.println("1. Converter para Celsius (°C)");
+                    System.out.println("2. Converter para Kelvin (K)");
+                    System.out.println("3. Voltar");
 
+                    System.out.print("\nOpção: ");
+                    int opf = entrada.nextInt();
 
-        }while (op != 3);
+                    switch (opf) {
+                        case 1:
+                            System.out.print("Informe a temperatura em Fahrenheit: ");
+                            f = entrada.nextDouble();
+                            c = (f - 32) / 1.8;
+                            System.out.println(f + "°F em Celsius é: " + c + "°C");
+                            break;
+                        case 2:
+                            System.out.print("Informe a temperatura em Fahrenheit: ");
+                            f = entrada.nextDouble();
+                            k = (f - 32) * 5 / 9 + 273.15;
+                            System.out.println(f + "°F em Kelvin é: " + k + "K");
+                            break;
+                        case 3:
+                            System.out.println("Voltando ao menu principal...");
+                            break;
+                        default:
+                            System.out.println("Opção inválida.");
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("Você escolheu Kelvin (K).");
+                    System.out.println("1. Converter para Celsius (°C)");
+                    System.out.println("2. Converter para Fahrenheit (°F)");
+                    System.out.println("3. Voltar");
+
+                    System.out.print("\nOpção: ");
+                    int opk = entrada.nextInt();
+
+                    switch (opk) {
+                        case 1:
+                            System.out.print("Informe a temperatura em Kelvin: ");
+                            k = entrada.nextDouble();
+                            c = k - 273.15;
+                            System.out.println(k + "K em Celsius é: " + c + "°C");
+                            break;
+                        case 2:
+                            System.out.print("Informe a temperatura em Kelvin: ");
+                            k = entrada.nextDouble();
+                            f = (k - 273.15) * 1.8 + 32;
+                            System.out.println(k + "K em Fahrenheit é: " + f + "°F");
+                            break;
+                        case 3:
+                            System.out.println("Voltando ao menu principal...");
+                            break;
+                        default:
+                            System.out.println("Opção inválida.");
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("Saindo... Arrivederci!");
+                    break;
+
+                default:
+                    System.out.println("Escolha uma opção correta...");
+            }
+
+        } while (op != 4);
+
+        entrada.close();
     }
-} 
+}
